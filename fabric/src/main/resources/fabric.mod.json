@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "crystaloptimizer",
+  "version": "${version}",
+  "name": "CrystalOptimizer",
+  "description": "Optimization that fixes waiting on the server after crystal break before end crystal entities are cleaned.",
+  "authors": [
+    "CDAGaming"
+  ],
+  "contact": {
+    "repo": "https://github.com/CDAGaming/CrystalOptimizer",
+    "issues": "https://github.com/CDAGaming/CrystalOptimizer/issues"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.cdagaming.crystaloptimizer.fabric.CrystalOptimizerFabric"
+    ]
+  },
+  "mixins": [
+    "crystaloptimizer.mixins.json",
+    "crystaloptimizer-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "minecraft": ">=1.19.3"
+  }
+}
