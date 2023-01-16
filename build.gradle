@@ -33,7 +33,7 @@ allprojects {
     version = rootProject.mod_version
     group = rootProject.maven_group
 
-    JavaVersion targetVersion = JavaVersion.VERSION_16
+    JavaVersion targetVersion = JavaVersion.VERSION_1_8
 
     sourceCompatibility = targetVersion
     targetCompatibility = targetVersion
