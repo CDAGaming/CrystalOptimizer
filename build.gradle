@@ -33,6 +33,11 @@ allprojects {
     version = rootProject.mod_version
     group = rootProject.maven_group
 
+    JavaVersion targetVersion = JavaVersion.VERSION_17
+
+    sourceCompatibility = targetVersion
+    targetCompatibility = targetVersion
+
     repositories {
         // Add repositories to retrieve artifacts from in here.
         // You should only use this when depending on other mods because
@@ -41,9 +46,15 @@ allprojects {
         // for more information about repositories.
     }
 
-    tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
-        options.release = 17
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = "UTF-8"
+
+        // The Minecraft launcher currently installs Java 8 for users, so your mod probably wants to target Java 8 too
+        // JDK 9 introduced a new way of specifying this that will make sure no newer classes or methods are used.
+        // We'll use that if it's available, but otherwise we'll use the older option.
+        if (JavaVersion.current().isJava9Compatible()) {
+            it.options.release.set(Integer.parseInt(targetVersion.getMajorVersion()))
+        }
     }
 
     java {
