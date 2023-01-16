@@ -189,12 +189,7 @@ public class ClientConnectionMixin {
                 }
 
                 @Override
-                public void handleRecipeBookSeenRecipePacket(ServerboundRecipeBookSeenRecipePacket serverboundRecipeBookSeenRecipePacket) {
-
-                }
-
-                @Override
-                public void handleRecipeBookChangeSettingsPacket(ServerboundRecipeBookChangeSettingsPacket serverboundRecipeBookChangeSettingsPacket) {
+                public void handleRecipeBookUpdatePacket(ServerboundRecipeBookUpdatePacket serverboundRecipeBookUpdatePacket) {
 
                 }
 
@@ -264,11 +259,6 @@ public class ClientConnectionMixin {
                 }
 
                 @Override
-                public void handleJigsawGenerate(ServerboundJigsawGeneratePacket serverboundJigsawGeneratePacket) {
-
-                }
-
-                @Override
                 public void handleChangeDifficulty(ServerboundChangeDifficultyPacket serverboundChangeDifficultyPacket) {
 
                 }
@@ -286,6 +276,6 @@ public class ClientConnectionMixin {
             return false;
         }
         Tier material = ((TieredItem) itemStack.getItem()).getTier();
-        return material == Tiers.DIAMOND || material == Tiers.NETHERITE;
+        return material == Tiers.DIAMOND;
     }
 }
